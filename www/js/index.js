@@ -47,7 +47,7 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
+// adding the calculator
 function add(){
     var num1 = Number(document.getElementById('num1').value);
     var num2 = Number(document.getElementById('num2').value);
@@ -59,11 +59,24 @@ function add(){
 
     document.getElementById("placeholder").innerHTML = result;   
 }
+//adding the camera function
+function pics(){
+    navigator.camera.getPicture(cameraCallBack, onError);
+}
 
+function cameralCallBack(imageData){
+    var image = document.getElementById('myImage')
+    Image.src = imageData;
+}
+function onError(message){
+    console.log('program crashed because: ' + message)
+}
+
+//adding the vibratin function
 function vibration(){
     var vibrationNum = Number(document.getElementById('vibrationNum').value);
 
     navigator.vibrate(vibrationNum);
 
-    console.log("vibrating for" + vibrationNum)
+    console.log("vibrating for" + (vibrationNum/1000)+ "seconds")
 }
