@@ -61,12 +61,12 @@ function add(){
 }
 //adding the camera function
 function pics(){
-    navigator.camera.getPicture(cameraCallBack, onError);
+    navigator.camera.getPicture(cameraCallBack, onError,);
 }
 
-function cameralCallBack(imageData){
-    var image = document.getElementById('myImage')
-    Image.src = imageData;
+function cameraCallBack(imageData){
+    var image = document.getElementById("myImage")
+    image.src = imageData;
 }
 function onError(message){
     console.log('program crashed because: ' + message)
