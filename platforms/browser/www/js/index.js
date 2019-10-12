@@ -72,6 +72,43 @@ function onError(message){
     console.log('program crashed because: ' + message)
 }
 
+function getLocation(){
+    navigator.geolocation.getCurrentPosition(geoCallback, onError)
+}
+
+
+
+function geoCallback(position){
+    var lat = position.coords.latitude
+    var lon = position.coords.longitude
+
+    document.getElementById("myPosition").innerHTML = lat + " , " + lon
+
+}
+
+function initMap() {
+    var cct = {lat: 53.346, lng: -6.2588};
+    var map = new
+    google.maps.Map(document.getElementById('map'), {   
+        zoom: 8,
+        center: cct
+    });
+    
+    var marker = new google.maps.Marker({
+        position: cct,
+        map: map
+    });
+
+    var marker2 = new google.maps.Marker({
+        position: {lat: 53.3458, lng: -6.2557},
+        map: map
+    });
+    
+    
+}
+
+
+
 //adding the vibratin function
 function vibration(){
     var vibrationNum = Number(document.getElementById('vibrationNum').value);
