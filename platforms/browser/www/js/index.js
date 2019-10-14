@@ -54,8 +54,6 @@ function add(){
     
     var result = num1 + num2;
 
-    // var placeholder = document.getElementById("placeholder");
-    // placeholder.innerHTML = result;
 
     document.getElementById("placeholder").innerHTML = result;   
 }
@@ -123,3 +121,21 @@ function vibration(){
     console.log("vibrating for" + (vibrationNum/1000)+ "seconds")
 }
 //adding external API
+function openGateAPI(){
+    var http = new XMLHttpRequest();
+    const url ="https://api.opencagedata.com/geocode/v1/json?q=53.346+-6.2588&key=7281aaf002ec4fe88734b4d64d6e9c69";
+    http.open("GET", url);
+    http.send();
+    http.onreadystatechange = (e) => {
+            var response = http.responseText;
+            var responseJSON = JSON.parse(response); 
+            console.log(response);
+            console.log(responseJSON)
+
+            // printing attributes in the front end
+            var country = responseJSON.results[0].components.country;
+            document.getElementById("myPosition").innerHTML = country
+
+    }
+
+}

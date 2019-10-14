@@ -50,6 +50,10 @@
             <p class="event received">Device is Ready</p>
             <!--adding camera functions-->
             <button id="camera" onclick="pics()">Picture</button> 
+            <!-- place holder for the picture -->
+            <div>
+                <img id="myImage" height="50%" width="50%">image here</img>
+            </div>
             
             <!-- adding GeoLocation to the application -->
             <button id="geoLocation" onclick="getLocation()">getLocation</button>
@@ -64,22 +68,18 @@
             <button onclick = "vibration()" >vibrate</button>
 
         </div>
-        <!-- place holder for the picture -->
-        <div>
-            <img id="myImage" height="50%" width="50%">image here</img>
-        </div>
+        
         <!-- 4th class -- showing the Latitude and Longitude of the device -->
         <div id="myPosition" >location here </div>
-        
         <div id="map"> </div>
-
+        <!-- opencage call -->
+        <button onclick="openGateAPI()">get info</button>
         </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>
-    <script src="https://api.opencagedata.com/geocode/v1/json?q=LAT+LNG&key=7281aaf002ec4fe88734b4d64d6e9c69"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApFPNQ2WxbEueUXMJBPHjLenlPnFo68ls&callback=initMap">  </script>
 
 </body>
