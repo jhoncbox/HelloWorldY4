@@ -63,7 +63,6 @@ function add(){
 function pics(){
     navigator.camera.getPicture(cameraCallBack, onError,);
 }
-
 function cameraCallBack(imageData){
     var image = document.getElementById("myImage")
     image.src = imageData;
@@ -72,12 +71,10 @@ function onError(message){
     console.log('program crashed because: ' + message)
 }
 
+// adding the Location to the application
 function getLocation(){
     navigator.geolocation.getCurrentPosition(geoCallback, onError)
 }
-
-
-
 function geoCallback(position){
     var lat = position.coords.latitude
     var lon = position.coords.longitude
@@ -103,17 +100,26 @@ function initMap() {
         position: {lat: 53.3458, lng: -6.2557},
         map: map
     });
-    
-    
+
+    updateMap(lat,lon);
 }
-
-
-
+function updateMap(latitude, longitude){
+    var location = {lat: latitude, lgn:longitude};
+    var map = new
+    google.maps.Map(document.getElementById('map'), {   
+        zoom: 8,
+        center: cct
+    });
+    
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+}
 //adding the vibratin function
 function vibration(){
     var vibrationNum = Number(document.getElementById('vibrationNum').value);
-
     navigator.vibrate(vibrationNum);
-
     console.log("vibrating for" + (vibrationNum/1000)+ "seconds")
 }
+//adding external API
